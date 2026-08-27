@@ -133,7 +133,7 @@ nestro-student-housing/
 
 ---
 
-## Team Velora (Velocity + Aura)
+## Team Innov8 (Velocity + Aura)
 
 > Made with heart by Department of Integrated M.Tech in AI-ML (First Year) — Sanjivani University, Kopargaon
 
@@ -170,7 +170,7 @@ GitHub : https://github.com/thoratpratik2323-hue/nestro-student-housing
 
 ---
 
-Made with heart by **Team Velora** — Sanjivani University, Kopargaon
+Made with heart by **Team Innov8** — Sanjivani University, Kopargaon
 
 **Copyright 2026 NESTRO — All rights reserved**
 

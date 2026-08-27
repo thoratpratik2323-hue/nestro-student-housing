@@ -309,7 +309,7 @@ export default function NestroLanding({ onLaunchApp }) {
       </section>
 
       <section className="n-wrap" id="team">
-        <Reveal><span className="n-kicker">Team Velora</span><h2 className="n-h2">The people behind NESTRO</h2><p className="n-sub">Velocity + Aura &mdash; Integrated M.Tech AI-ML, Year I, Sanjivani University, Kopargaon.</p></Reveal>
+        <Reveal><span className="n-kicker">Team Innov8</span><h2 className="n-h2">The people behind NESTRO</h2><p className="n-sub">Velocity + Aura &mdash; Integrated M.Tech AI-ML, Year I, Sanjivani University, Kopargaon.</p></Reveal>
         <div className="n-team">{TEAM.map((m, i) => (<Reveal key={m.initials} delay={i * 80}><div className="n-member"><div className="n-avatar">{m.initials}</div>{m.lead && <span className="n-member__tag">LEAD</span>}<h5>{m.name}</h5><p>{m.role}</p></div></Reveal>))}</div>
       </section>
 
@@ -328,7 +328,7 @@ export default function NestroLanding({ onLaunchApp }) {
 
       <footer className="n-footer">
         <div className="n-wrap n-footer__inner">
-          <div>&copy; 2026 NESTRO &middot; Built by Team Velora for EUREKA 2026, Sanjivani University</div>
+          <div>&copy; 2026 NESTRO &middot; Built by Team Innov8 for EUREKA 2026, Sanjivani University</div>
           <div className="n-footer__contact">
             <a href="tel:+919834620537"><IconPhone /> +91 98346 20537</a>
             <a href="mailto:nestrosupport@gmail.com"><IconMail /> nestrosupport@gmail.com</a>
