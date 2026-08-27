@@ -1,1 +1,177 @@
-PCEtLSBORVNUUk8gQmFubmVyIC0tPgo8ZGl2IGFsaWduPSJjZW50ZXIiPgoKIyMgPGltZyBzcmM9InB1YmxpYy9sb2dvLnBuZyIgaGVpZ2h0PSI3MCIgYWx0PSJORVRST0xvZ28iLz4gJm5ic3A7IE5FU1RSTwo8YnIvPgoKIyMjIDxpPkluZGlhJ3MgMXN0IEFJLVBvd2VyZWQsIDAlIEJyb2tlcmFnZSBTdHVkZW50IEhvdXNpbmcgUGxhdGZvcm08L2k+Cgo8YnIvPgoKWyFbTGl2ZSBBcHBdKGh0dHBzOi8vaW1nLnNoaWVsZHMuaW8vYmFkZ2UvTElWRS1uZXN0cm8ud2ViLmFwcC0yZTdiMzY/c3R5bGU9Zm9yLXRoZS1iYWRnZSZsb2dvPWZpcmViYXNlJmxvZ29Db2xvcj13aGl0ZSldKGh0dHBzOi8vbmVzdHJvLndlYi5hcHAvKQpbIVtSZWFjdF0oaHR0cHM6Ly9pbWcuc2hpZWxkcy5pby9iYWRnZS9SZWFjdC0xOC0tNjFEQUZCP3N0eWxlPWZvci10aGUtYmFkZ2UmbG9nbz1yZWFjdCZsb2dvQ29sb3I9d2hpdGUpXShodHRwczovL3JlYWN0anMub3JnLykKWyFbRmlyZWJhc2VdKGh0dHBzOi8vaW1nLnNoaWVsZHMuaW8vYmFkZ2UvRmlyZWJhc2UtQ2xvdWQtRkZDQTI4P3N0eWxlPWZvci10aGUtYmFkZ2UmbG9nbz1maXJlYmFzZSZsb2dvQ29sb3I9YmxhY2spXShodHRwczovL2ZpcmViYXNlLmdvb2dsZS5jb20pCltbIVtWaXRlXShodHRwczovL2ltZy5zaGllbGRzLmlvL2JhZGdlL1ZpdGUtNS0tNjQ2Q0ZGP3N0eWxlPWZvci10aGUtYmFkZ2UmbG9nbz12aXRlJmxvZ29Db2xvcj13aGl0ZSldKGh0dHBzOi8vdml0ZWpzLmRldildCltbIVtUYWlsd2luZCBDU1NdKGh0dHBzOi8vaW1nLnNoaWVsZHMuaW8vYmFkZ2UvVGFpbHdpbmQtMy0tMzhCREY4P3N0eWxlPWZvci10aGUtYmFkZ2UmbG9nbz10YWlsd2luZC1jc3MmbG9nb0NvbG9yPXdoaXRlKV0oaHR0cHM6Ly90YWlsd2luZGNzcy5jb20pXQpbIVtMaWNlbnNlOiBNSVRdKGh0dHBzOi8vaW1nLnNoaWVsZHMuaW8vYmFkZ2UvTGljZW5zZS1NSVQteWVsbG93LnN2Zz9zdHlsZT1mb3ItdGhlLWJhZGdlKV0oTElDRU5TRSkKWyFbR2l0SHViIFN0YXJzXShodHRwczovL2ltZy5zaGllbGRzLmlvL2dpdGh1Yi9zdGFycy90aG9yYXRwcmF0aWsyMzIzLWh1ZS9uZXN0cm8tc3R1ZGVudC1ob3VzaW5nP3N0eWxlPWZvci10aGUtYmFkZ2UmY29sb3I9ZmVmMDhhKV0oaHR0cHM6Ly9naXRodWIuY29tL3Rob3JhdHByYXRpazIzMjMtaHVlL25lc3Ryby1zdHVkZW50LWhvdXNpbmcvc3RhcmdhemVycykKCjxicj4KCjxhIGhyZWY9Imh0dHBzOi8vbmVzdHJvLndlYi5hcHAvIj4KICA8aW1nIHNyYz0iaHR0cHM6Ly9pbWcuc2hpZWxkcy5pby9iYWRnZS8lRjAlOUYlOEMlOUQlMjBPcGVuJTIwTGl2ZSUyMEFwcC1uZXN0cm8ud2ViLmFwcC01QjE1MjY/c3R5bGU9Zm9yLXRoZS1iYWRnZSIgYWx0PSJPcGVuIExpdmUgQXBwIiBoZWlnaHQ9IjQ1Ii8+CjwvYT4KCjwvZGl2PgoKPGhyPgoKPCEtLSBPVkVSVklFVyAtLT4KCiMjIPCfkb8gT3ZlcnZpZXcKCioqTkVTVFJPKiogaXMgYSByZWFsLXRpbWUsIEFJLXBvd2VyZWQgc3R1ZGVudCBob3VzaW5nIHBsYXRmb3JtIGJ1aWx0IGZvciBJbmRpYW4gY29sbGVnZSBodWJzLgoKSXQgKiplbGltaW5hdGVzIGJyb2tlcmFnZSBmZWVzKiosICoqcHJvdGVjdHMgc3R1ZGVudCBkZXBvc2l0cyB2aWEgZXNjcm93KiosIGFuZCBtYXRjaGVzIHN0dWRlbnRzIHRvIHZlcmlmaWVkIGhvc3RlbHMgJiBQR3Mgd2l0aGluIHNlY29uZHMgdXNpbmcgKipORVNUIEFJKiouCgo+IEJ1aWx0IGZvciBFVVJFS0EgMjAyNiBQaXRjaGluZyBDb21wZXRpdGlvbiAtIFNhbmplaXZhbmkgVW5pdmVyc2l0eSwgS29wYXJnYW9uCgotLS0KCiMjIPCfjqMgVHJ5IHRoZSBMaXZlIEFwcAoKPGRpdiBhbGlnbj0iY2VudGVyIj4KCnwgU2NhbiBRUiBmcm9tIFlvdXIgUGhvbmUgfCBMaXZlIExpbmsgfAp8IDotLS0tLS0tLS0tLS0tLS0tLS0tLS06IHwgOi0tLS0tLS0tLS06IHwKfCA8aW1nIHNyYz0ibmVzdHJvX3FyX2NvZGUucG5nIiB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgYWx0PSJTY2FuIHRvIG9wZW4gTkVTVFJPIi8+IHwgPGJyLz48YT48YiBoZXJlZj0iaHR0cHM6Ly9uZXN0cm8ud2ViLmFwcC8iPmh0dHBzOi8vbmVzdHJvLndlYi5hcHAvPC9iPjwvYT48YnIvPjxicj48aT5Qb2ludCB5b3VyIHBob25lIGNhbWVyYSB0byB0aGUgUVI8YnIvPnRvIGV4cGVyaWVuY2UgbGl2ZSBGaXJlc3RvcmUgREIgKyBORVNUIEFJPC9pPiB8CgogPC9kaXY+CgotLS0KCiMjIPCflJUgQ29yZSBGZWF0dXJlcwoKfCBGZWF0dXJlIHwgRGVzY3JpcHRpb24gfAp8LS0tLS0tLS18LS0tLS0tLS0tLS0tLXwKfCDwn4+gIDAlIFplcm8gQnJva2VyYWdlIHwgU3R1ZGVudHMgYnJvd3NlLCBib29rICYgdmlzaXQgc3RheXMgZnJlZS4gU2F2ZXMgdXAgdG8gUlMgNSwwMDArIHBlciBzdHVkZW50IHwKfCDwn5e0IE5FU1QgQUkgTWF0Y2htYWtlciB8IENvbnZlcnNhdGlvbmFsIEFJIGluIEhpbmRpLCBNYXJhdGhpICYgRW5nbGlzaC4gTWF0Y2hlcyBieSBkaXN0YW5jZSB0byBjYW1wdXMgZ2F0ZXMgfAp8IPCfn6EgRXNjcm93IERlcG9zaXQgfCBEZXBvc2l0cyBsb2NrZWQgaW4gYmFuay1ncmFkZSBlc2Nyb3cuIFJlbGVhc2VkIG9ubHkgYWZ0ZXIgcGh5c2ljYWwgY2hlY2staW4gfAp8IOKaoPCflLsgUmVhbC1UaW1lIFN5bmMgfCBMaXZlIENsb3VkIEZpcmVzdG9yZSBzeW5jIGZvciBob3N0ZWwgYmVkcywgd2FpdGxpc3RzICYgYm9va2luZyBzdGF0dXMgfAp8IHJlYWwtdGltZSBXYWl0bGlzdCBUb2tlbnMgfCBGSUZPIHRva2VuIHF1ZXVlcyBmb3Igb3ZlcmJvb2tlZCBob3N0ZWxzIGR1cmluZyBhZG1pc3Npb24gc2Vhc29uIHwKfCDwn5OJIFBXQSB8IEluc3RhbGxhYmxlLCBvZmZsaW5lLWNhcGFibGUgbW9iaWxlICYgZGVza3RvcCBleHBlcmllbmNlIHwKfCDwn5SlIDI0LzcgSGVscGxpbmUgfCBEaXJlY3QgY2FsbCAmIFdoYXRzQXBwIHJlc29sdXRpb24gKCs5MSA5ODM0NiAyMDUzNykgfAp8IPCfj6cgT3duZXIgS1lDIFBvcnRhbCB8IDUtc3RlcCBvd25lciB2ZXJpZmljYXRpb24gd2l0aCBnZW8tdGFnZ2VkIHBob3RvcyAmIGN1cmZldyBjaGVja3MgfAoKLS0tCgojIyDwn5S7IFRlY2ggU3RhY2sKCnwgTGF5ZXIgfCBUZWNobm9sb2d5IHwKfC0tLS0tLS18LS0tLS0tLS0tLS0tfAp8IFVJIEZyYW1ld29yayB8IFJlYWN0IDE4ICsgVml0ZSA1IHwKfCBTdHlsaW5nIHwgVGFpbHdpbmQgQ1NTIDMgfAp8IEljb25zIHwgTHVjaWRlIFJlYWN0IHwKfCBBdXRoZW50aWNhdGlvbiB8IEZpcmViYXNlIEF1dGggKEVtYWlsICsgUGhvbmUpIHwKfCBEYXRhYmFzZSB8IENsb3VkIEZpcmVzdG9yZSAoUmVhbC1UaW1lIFN5bmMpIHwKfCBBSSBFbmdpbmUgfCBORVNUIEFJIChJbnRlbnQgUGFyc2luZyArIE11bHRpbGluZ3VhbCkgfAp8IEhvc3RpbmcgfCBGaXJlYmFzZSBIb3N0aW5nIChHb29nbGUgQ2xvdWQpIHwKfCBQV0EgfCBzdy5qcyBTZXJ2aWNlIFdvcmtlciArIFdlYiBBcHAgTWFuaWZlc3QgfAoKLS0tCgojIyDwn5yMIDQtUGlsbGFyIFJldmVudWUgTW9kZWwKCnwgUGlsbGFyIHwgTW9kZWwgfCBQcmljaW5nIHwKfC0tLS0tLS0tfC0tLS0tLS18LS0tLS0tLS0tfAp8IPCfj6IgUHJvcGVydHkgT3duZXIgU3VjY2VzcyBGZWUgfCBCMkIgfCBSUyA1MDAgLSAxLDAwMCBwZXIgZmlsbGVkIGJlZCB8Cnwg4pKhIEZlYXR1cmVkIFNwb3RsaWdodCBCb29zdCB8IEIyQiB8IFJTIDEsNTAwIC0gMywwMDAgcGVyIG1vbnRoIHwKfCDwn5+hIFN0dWRlbnQgVHJ1c3QgRmVlIHwgTWljcm8gQjJDIHwgUlMgOTkgZmxhdCBvbiBtb3ZlLWluIHwKfCDwn5SyIEhvc3RlbE9TIFNhYVMgfCBCMkIgfCBSUyA0OTkgLSA3OTkgcGVyIG1vbnRoIHwKCi0tLQoKIyMg8J+ShSBRdWljayBTdGFydAoKYGBgYmFzaAojIDEuIENsb25lIHRoZSByZXBvCmdpdCBjbG9uZSBodHRwczovL2dpdGh1Yi5jb20vdGhvcmF0cHJhdGlrMjMyMy1odWUvbmVzdHJvLXN0dWRlbnQtaG91c2luZy5naXQKY2QgbmVzdHJvLXN0dWRlbnQtaG91c2luZwoKIyAyLiBJbnN0YWxsIGRlcGVuZGVuY2llcwpucG0gaW5zdGFsbAoKIyAzLiBTdGFydCBkZXZlbG9wbWVudCBzZXJ2ZXIKIG5wbSBydW4gZGV2CgojIDQuIE9wZW4gaW4gYnJvd3NlcgojIGh0dHA6Ly9sb2NhbGhvc3Q6NTE3MwpgYGAKCi0tLQoKIyMg8J+agCBEZXBsb3kgdG8gRmlyZWJhc2UKCmBgYGJhc2gKbnBtIHJ1biBidWlsZApucHggZmlyZWJhc2UgZGVwbG95IC0tb25seSBob3N0aW5nCmBgYAoKLS0tCgojIyDwn5GBIFN0cnVjdHVyZQoKYGBgCm5lc3Ryby1zdHVkZW50LWhvdXNpbmcvCuKUnOKUgOKUgCBzcmMvCuKUgiAgIOKUnOKUgOKUgCBBcHAuanN4ICAgICAgICAgICAjIE1haW4gYXBwICg5NTAwKyBsaW5lcykK4pSCICAg4pSc4pSA4pSAIGZpcmViYXNlLmpzICAgICAgICAjIEZpcmViYXNlIGNvbmZpZwriipSCICAg4pSU4pSA4pSAIG1haW4uanN4ICAgICAgICAgICAjIFJlYWN0IGVudHJ5CuKUnOKUgOKUgCBwdWJsaWMvCuKUgiAgIOKUnOKUgOKUgCBsb2dvLnBuZyAgICAgICAgICAgIyBORVNUUk8gM0QgbG9nbwriipSCICAg4pSc4pSA4pSAIGFpLWxvZ28ucG5nICAgICAgICAjIE5FU1QgQUkgbG9nbwriipSCICAg4pSc4pSA4pSAIG1hbmlmZXN0Lmpzb24gICAgICAgIyBQV0EgbWFuaWZlc3QK4pSCICAg4pSU4pSA4pSAIHN3LmpzICAgICAgICAgICAgICAjIFNlcnZpY2Ugd29ya2VyCuKUnOKUgOKUgCBmaXJlYmFzZS5qc29uICAgICAgICAgICAjIEZpcmViYXNlIGNvbmZpZwriipSc4pSA4pSAIHBhY2thZ2UuanNvbiAgICAgICAgICAgICAjIG5wbSBkZXBzCuKUlOKUgOKUgCBuZXN0cm9fcXJfY29kZS5wbmcgICAgICAgIyBRUiBjb2RlIGZvciBsaXZlIGFwcApgYGAKCi0tLQoKIyMg8J+RjyBUZWFtIFZlbG9yYSAgKFZlbG9jaXR5ICsgQXVyYSkKCj4gTWFkZSB3aXRoIGJ5IERlcGFydG1lbnQgb2YgSW50ZWdyYXRlZCBNLlRlY2ggaW4gQUktTUwgKEZpcnN0IFllYXIpIC0gU2Fuaml2YW5pIFVuaXZlcnNpdHksIEtvcGFyZ2Fvbgp8ICMgfCBOYW1lIHwgUm9sZSB8CnwtLS18LS0tLS18LS0tLS18CnwgMSB8IFNhbXJ1ZGRoaSBSYWplc2ggR2FuZ2FkIHwgVGVhbSBMZWFkZXIgJiBVWCAvIFByb2R1Y3QgRGVzaWduIExlYWQgfAp8IDIgfCBQcmF0aWsgVGhvcmF0IHwgRnVsbC1TdGFjayBEZXZlbG9wZXIgJiBBSSAvIFRlY2huaWNhbCBMZWFkIHwKfCAzIHwgS2lydGkgSG9uZGUgfCBNYXJrZXQgSW50ZWxsaWdlbmNlICYgU3R1ZGVudCBSZWxhdGlvbnMgfAp8IDQgfCBQYXJ0aCBQYWNocHV0ZSB8IE9wZXJhdGlvbnMgJiBIb3N0IE9uYm9hcmRpbmcgfAoKLS0tCgojIyDwn5iRIFJvYWRtYXAKCi0gW3hdIFBoYXNlIDE6IFNhbmplaXZhbmkgVW5pdmVyc2l0eSBQaWxvdCAoMTUwKyBQR3MsIDUwMCsgYm9va2luZ3MpCi0gWyBdIFBoYXNlIDI6IE5hc2hpayAmIFNoaXJkaSBFeHBhbnNpb24gKDIsMDAwKyBiZWRzKQotIFsgXSBQaGFzZSAzOiBNYWhhcmFzaHRyYSBTY2FsZSAoNTArIGNhbXB1c2VzLCAyMCwwMDArIHN0dWRlbnRzKQotIFsgXSBBbmRyb2lkICYgaU9TIE5hdGl2ZSBBcHBzCi0gWyBdIFVQSSBFc2Nyb3cgQmFua2luZyAoUmF6b3JwYXkpCi0gWyBdIFVuaXZlcnNpdHkgSW5zdGl0dXRpb25hbCBNb1UgUGFydG5lcnNoaXBzCgotLS0KCiMjIPCfk60gQ29udGFjdAoKYGBgCiBQaG9uZSA6ICs5MSA5ODM0NiAyMDUzNyAoMjQvNyBTdHVkZW50IEhlbHBsaW5lKQogRW1haWwgOiBuZXN0cm9zdXBwb3J0QGdtYWlsLmNvbQogTGl2ZSAgOiBodHRwczovL25lc3Ryby53ZWIuYXBwLwpgYGAKCjxkaXYgYWxpZ249ImNlbnRlciI+CgotLS0KCk1hZGUgd2l0aCBoZWFydCBieSBUZWFtIFZlbG9yYSAtIFNhbmplaXZhbmkgVW5pdmVyc2l0eSwgS29wYXJnYW9uCgoqKihjKSAyMDI2IE5FU1RSTyAtIEFsbCByaWdodHMgcmVzZXJ2ZWQqKgoKPC9kaXY+
+<div align="center">
+
+## NESTRO
+
+### *India's 1st AI-Powered, 0% Brokerage Student Housing Platform*
+
+[![Live App](https://img.shields.io/badge/LIVE-nestro.web.app-2e7b36?style=for-the-badge&logo=firebase&logoColor=white)](https://nestro.web.app/)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://reactjs.org/)
+[![Firebase](https://img.shields.io/badge/Firebase-Cloud-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com)
+[![Vite](https://img.shields.io/badge/Vite-5-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-38BDF8?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![Stars](https://img.shields.io/github/stars/thoratpratik2323-hue/nestro-student-housing?style=for-the-badge&color=fef08a)](https://github.com/thoratpratik2323-hue/nestro-student-housing/stargazers)
+
+<a href="https://nestro.web.app/">
+  <img src="https://img.shields.io/badge/Open%20Live%20App-nestro.web.app-5B1526?style=for-the-badge" alt="Open Live App" height="40"/>
+</a>
+
+</div>
+
+---
+
+## Overview
+
+**NESTRO** is a real-time, AI-powered student housing platform built for Indian college hubs.
+
+It **eliminates brokerage fees**, **protects student deposits via escrow**, and matches students to verified hostels & PGs within seconds using **NEST AI**.
+
+> Built for **EUREKA 2026 Pitching Competition** — Sanjivani University, Kopargaon
+
+---
+
+## Try the Live App
+
+<div align="center">
+
+| Scan QR from Your Phone | Live Link |
+| :-: | :-: |
+| <img src="nestro_qr_code.png" width="180" height="180" alt="Scan QR"/> | **[https://nestro.web.app/](https://nestro.web.app/)** <br/><br/> *Point your phone camera to QR to experience live Firestore DB + NEST AI* |
+
+</div>
+
+---
+
+## Core Features
+
+| Feature | Description |
+|---------|-------------|
+| Zero Brokerage | Students browse, book & visit stays free. Saves RS 5,000+ per student |
+| NEST AI Matchmaker | Conversational AI in Hindi, Marathi & English. Matches by campus gate distance |
+| Escrow Deposit Guarantee | Deposits locked in bank-grade escrow. Released only after physical check-in |
+| Real-Time Sync | Live Cloud Firestore sync for hostel beds, waitlists & booking status |
+| Priority Waitlist Tokens | FIFO token queues for overbooked hostels during admission season |
+| PWA | Installable, offline-capable mobile & desktop experience |
+| 24/7 Helpline | Direct call & WhatsApp resolution (+91 98346 20537) |
+| Owner KYC Portal | 5-step owner verification with geo-tagged photos & curfew checks |
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| UI Framework | React 18 + Vite 5 |
+| Styling | Tailwind CSS 3 |
+| Icons | Lucide React |
+| Authentication | Firebase Auth (Email + Phone) |
+| Database | Cloud Firestore (Real-Time Sync) |
+| AI Engine | NEST AI (Intent Parsing + Multilingual) |
+| Hosting | Firebase Hosting (Google Cloud) |
+| PWA | sw.js Service Worker + Web App Manifest |
+
+---
+
+## 4-Pillar Revenue Model
+
+| Pillar | Model | Pricing |
+|--------|-------|---------|
+| Property Owner Success Fee | B2B | RS 500 to 1,000 per filled bed |
+| Featured Spotlight Boost | B2B | RS 1,500 to 3,000 per month |
+| Student Trust & Move-In Fee | Micro B2C | RS 99 flat on move-in |
+| NESTRO HostelOS SaaS | B2B | RS 499 to 799 per month |
+
+---
+
+## Quick Start
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/thoratpratik2323-hue/nestro-student-housing.git
+cd nestro-student-housing
+
+# 2. Install dependencies
+npm install
+
+# 3. Start development server
+npm run dev
+
+# 4. Open in browser: http://localhost:5173
+```
+
+---
+
+## Deploy to Firebase
+
+```bash
+npm run build
+npx firebase deploy --only hosting
+```
+
+> Live URL: [https://nestro.web.app/](https://nestro.web.app/)
+
+---
+
+## Project Structure
+
+```
+nestro-student-housing/
+|-- src/
+|   |-- App.jsx           # Main app (9500+ lines)
+|   |-- firebase.js       # Firebase config
+|   |-- index.css         # Global styles
+|   +-- main.jsx          # React entry point
+|-- public/
+|   |-- logo.png          # NESTRO 3D logo
+|   |-- ai-logo.png       # NEST AI glowing logo
+|   |-- manifest.json     # PWA manifest
+|   +-- sw.js             # Service worker
+|-- firebase.json         # Firebase hosting config
+|-- package.json          # npm dependencies
+|-- vite.config.js        # Vite build config
++-- nestro_qr_code.png    # QR code for live app
+```
+
+---
+
+## Team Velora (Velocity + Aura)
+
+> Made with heart by Department of Integrated M.Tech in AI-ML (First Year) — Sanjivani University, Kopargaon
+
+| # | Name | Role |
+|---|------|------|
+| 1 | **Samruddhi Rajesh Gangad** | Team Leader & UX / Product Design Lead |
+| 2 | **Pratik Thorat** | Full-Stack Developer & AI / Technical Lead |
+| 3 | **Kirti Honde** | Market Intelligence & Student Relations |
+| 4 | **Parth Pachpute** | Operations & Host Onboarding |
+
+---
+
+## Roadmap
+
+- [x] Phase 1: Sanjivani University Pilot (150+ PGs, 500+ bookings)
+- [ ] Phase 2: Nashik & Shirdi Expansion (2,500+ beds, 15+ colleges)
+- [ ] Phase 3: Maharashtra Scale (50+ campuses, 20,000+ students)
+- [ ] Android & iOS Native Apps
+- [ ] UPI Escrow Banking Integration (Razorpay)
+- [ ] University Institutional MoU Partnerships
+
+---
+
+## Contact
+
+```
+Phone  : +91 98346 20537  (24/7 Student Helpline)
+Email  : nestrosupport@gmail.com
+Live   : https://nestro.web.app/
+GitHub : https://github.com/thoratpratik2323-hue/nestro-student-housing
+```
+
+<div align="center">
+
+---
+
+Made with heart by **Team Velora** — Sanjivani University, Kopargaon
+
+**Copyright 2026 NESTRO — All rights reserved**
+
+</div>
