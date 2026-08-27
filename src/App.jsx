@@ -3618,14 +3618,22 @@ export default function App() {
   });
   const [authLoading, setAuthLoading] = useState(true);
   const [listings, setListings] = useState(() => {
+    let base = LISTINGS;
     try {
       const custom = localStorage.getItem("nestro_custom_listings");
       if (custom) {
         const parsed = JSON.parse(custom);
-        return [...parsed, ...LISTINGS];
+        base = [...parsed, ...LISTINGS];
       }
     } catch (e) {}
-    return LISTINGS;
+    try {
+      const cachedSaved = localStorage.getItem("nestro_saved_ids");
+      if (cachedSaved) {
+        const ids = JSON.parse(cachedSaved);
+        return base.map(l => ({ ...l, saved: ids.includes(l.id) }));
+      }
+    } catch (e) {}
+    return base;
   });
   const [screen, setScreen] = useState("home"); // home | detail | booking
   const [selected, setSelected] = useState(null);
@@ -3797,6 +3805,12 @@ export default function App() {
       const unsub = onSnapshot(collection(db, "listings"), (snapshot) => {
         if (!snapshot.empty) {
           const remoteListings = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+          let currentSavedIds = [];
+          try {
+            const cached = localStorage.getItem("nestro_saved_ids");
+            if (cached) currentSavedIds = JSON.parse(cached);
+          } catch (e) {}
+
           setListings(prev => {
             const merged = [...remoteListings];
             prev.forEach(p => {
@@ -3804,7 +3818,10 @@ export default function App() {
                 merged.push(p);
               }
             });
-            return merged;
+            return merged.map(l => ({
+              ...l,
+              saved: currentSavedIds.includes(l.id) || l.saved
+            }));
           });
         }
       }, (err) => {
@@ -3859,7 +3876,14 @@ export default function App() {
   }
 
   function toggleSave(id) {
-    setListings(p => p.map(l => l.id === id ? { ...l, saved: !l.saved } : l));
+    setListings(p => {
+      const next = p.map(l => l.id === id ? { ...l, saved: !l.saved } : l);
+      try {
+        const savedIds = next.filter(l => l.saved).map(l => l.id);
+        localStorage.setItem("nestro_saved_ids", JSON.stringify(savedIds));
+      } catch (e) {}
+      return next;
+    });
     if (selected?.id === id) setSelected(s => ({ ...s, saved: !s.saved }));
   }
 
