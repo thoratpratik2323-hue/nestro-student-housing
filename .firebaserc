@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "project-x-6fb4a"
+  },
+  "targets": {
+    "project-x-6fb4a": {
+      "hosting": {
+        "nestro": [
+          "nestro"
+        ]
+      }
+    }
+  }
+}
