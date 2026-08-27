@@ -3831,6 +3831,34 @@ export default function App() {
     } catch (e) {}
   }, []);
 
+  // Cloud Firestore Sync: Listen to User Saved Wishlist across all devices
+  useEffect(() => {
+    if (!user?.email) return;
+    try {
+      const userKey = user.email.toLowerCase().trim();
+      const unsub = onSnapshot(doc(db, "user_saved", userKey), (docSnap) => {
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          const cloudSavedIds = Array.isArray(data.savedIds) ? data.savedIds : [];
+          try {
+            localStorage.setItem("nestro_saved_ids", JSON.stringify(cloudSavedIds));
+            localStorage.setItem(`nestro_saved_ids_${userKey}`, JSON.stringify(cloudSavedIds));
+          } catch (e) {}
+          setListings(prev => prev.map(l => ({
+            ...l,
+            saved: cloudSavedIds.includes(l.id)
+          })));
+          if (selected) {
+            setSelected(s => s ? ({ ...s, saved: cloudSavedIds.includes(s.id) }) : s);
+          }
+        }
+      }, (err) => {
+        console.log("Cloud Saved sync notice:", err);
+      });
+      return () => unsub();
+    } catch (e) {}
+  }, [user?.email]);
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (fbUser) => {
       if (fbUser) {
@@ -3878,10 +3906,28 @@ export default function App() {
   function toggleSave(id) {
     setListings(p => {
       const next = p.map(l => l.id === id ? { ...l, saved: !l.saved } : l);
+      const savedIds = next.filter(l => l.saved).map(l => l.id);
+      
+      // 1. Save to localStorage (instant offline speed)
       try {
-        const savedIds = next.filter(l => l.saved).map(l => l.id);
         localStorage.setItem("nestro_saved_ids", JSON.stringify(savedIds));
+        if (user?.email) {
+          localStorage.setItem(`nestro_saved_ids_${user.email.toLowerCase().trim()}`, JSON.stringify(savedIds));
+        }
       } catch (e) {}
+
+      // 2. Sync to Cloud Firestore (cross-device sync for same user account)
+      if (user?.email) {
+        try {
+          const userKey = user.email.toLowerCase().trim();
+          setDoc(doc(db, "user_saved", userKey), {
+            email: user.email,
+            savedIds: savedIds,
+            updatedAt: new Date().toISOString()
+          }, { merge: true }).catch(() => {});
+        } catch (e) {}
+      }
+
       return next;
     });
     if (selected?.id === id) setSelected(s => ({ ...s, saved: !s.saved }));
