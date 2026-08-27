@@ -3933,6 +3933,22 @@ export default function App() {
   useEffect(() => {
     if (!user?.email) return;
     const userKey = user.email.toLowerCase().trim();
+
+    // Auto-reconcile: Push any local saved listings to cloud if cloud is not yet populated
+    try {
+      const localCached = localStorage.getItem("nestro_saved_ids");
+      if (localCached) {
+        const localIds = JSON.parse(localCached);
+        if (Array.isArray(localIds) && localIds.length > 0) {
+          setDoc(doc(db, "user_saved", userKey), {
+            email: user.email,
+            savedIds: localIds,
+            updatedAt: new Date().toISOString()
+          }, { merge: true }).catch(() => {});
+        }
+      }
+    } catch (e) {}
+
     try {
       // Profile listener (reflects edits made from another device instantly)
       const unsubUser = onSnapshot(doc(db, "users", userKey), (docSnap) => {
@@ -4003,7 +4019,7 @@ export default function App() {
 
   function toggleSave(id) {
     setListings(p => {
-      const next = p.map(l => l.id === id ? { ...l, saved: !l.saved } : l);
+      const next = p.map(l => String(l.id) === String(id) ? { ...l, saved: !l.saved } : l);
       const savedIds = next.filter(l => l.saved).map(l => l.id);
       
       // 1. Save to localStorage (instant offline speed)
