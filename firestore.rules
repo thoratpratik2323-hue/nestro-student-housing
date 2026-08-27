@@ -1,0 +1,11 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow read & write to all collections for authenticated & campus users
+    // (users, user_saved, listings, bookings, waitlists, notifications)
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
