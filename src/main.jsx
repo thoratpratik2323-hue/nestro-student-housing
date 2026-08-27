@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+import NestroLanding from './Landing.jsx'
 import './index.css'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+function Root() {
+  const [showApp, setShowApp] = useState(false)
+  if (showApp) return <App />
+  return <NestroLanding onLaunchApp={() => setShowApp(true)} />
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<Root />)
