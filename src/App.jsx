@@ -21,6 +21,7 @@ import {
   collection,
   doc,
   setDoc,
+  getDoc,
   getDocs,
   onSnapshot
 } from "firebase/firestore";
@@ -1765,48 +1766,99 @@ function BookingFlow({ listing: l, user, onBack, onConfirm }) {
 ══════════════════════════════════════ */
 function EditProfileModal({ user, onSave, onClose }) {
   const [form, setForm] = useState({
-    name: user.name || "",
-    email: user.email || ""
+    name: user?.name || "",
+    email: user?.email || "",
+    college: user?.college || "Sanjivani University, Kopargaon",
+    phone: user?.phone || "9834620537",
+    moveIn: user?.moveIn || "2026-09-01"
   });
+  const [saving, setSaving] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSaving(true);
+    await onSave(form);
+    setSaving(false);
+    onClose();
+  };
 
   return (
     <div style={{ position: "fixed", inset: 0, zIndex: 9999, display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}>
-      <div onClick={onClose} style={{ position: "absolute", inset: 0, background: "rgba(36,16,22,0.6)", backdropFilter: "blur(4px)" }} />
-      <div style={{ position: "relative", width: "100%", maxWidth: 420, background: "#FFFDFB", borderRadius: 24, border: "1px solid #EADCD9", boxShadow: "0 24px 60px -20px rgba(46,10,22,0.45)", padding: "28px 26px", zIndex: 1 }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20 }}>
+      <div onClick={onClose} style={{ position: "absolute", inset: 0, background: "rgba(36,16,22,0.65)", backdropFilter: "blur(4px)" }} />
+      <div style={{ position: "relative", width: "100%", maxWidth: 440, background: "#FFFDFB", borderRadius: 24, border: "1px solid #EADCD9", boxShadow: "0 24px 60px -20px rgba(46,10,22,0.45)", padding: "26px 24px", zIndex: 1, maxHeight: "90vh", overflowY: "auto" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18 }}>
           <div>
             <h3 style={{ fontFamily: "Fraunces,serif", fontSize: 20, fontWeight: 700, color: "#241016", margin: 0 }}>Edit Student Profile</h3>
-            <p style={{ fontFamily: "Inter,sans-serif", fontSize: 12, color: "#8C6B70", margin: "2px 0 0" }}>Update your name and email address</p>
+            <p style={{ fontFamily: "Inter,sans-serif", fontSize: 12, color: "#8C6B70", margin: "2px 0 0" }}>Syncs across all your devices in real-time</p>
           </div>
-          <button onClick={onClose} style={{ width: 34, height: 34, borderRadius: "50%", background: "#F6EDEC", border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: "#5B1526" }}>
-            <X size={17} />
+          <button onClick={onClose} style={{ width: 32, height: 32, borderRadius: "50%", background: "#F6EDEC", border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: "#5B1526" }}>
+            <X size={16} />
           </button>
         </div>
 
-        <form onSubmit={e => { e.preventDefault(); onSave(form); onClose(); }} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-          <label style={{ display: "flex", flexDirection: "column", gap: 6, fontSize: 13, fontWeight: 600, color: "#241016" }}>
-            <span style={{ display: "flex", alignItems: "center", gap: 6, color: "#8C6B70", fontSize: 12.5 }}>👤 Full Name</span>
+        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+          <label style={{ display: "flex", flexDirection: "column", gap: 5, fontSize: 13, fontWeight: 600, color: "#241016" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: 6, color: "#8C6B70", fontSize: 12 }}>👤 Full Name</span>
             <input
               value={form.name}
               onChange={e => setForm({...form, name: e.target.value})}
-              placeholder="e.g., Ananya Rao"
-              style={{ border: "1.5px solid #EADCD9", borderRadius: 10, padding: "11px 13px", fontFamily: "Inter,sans-serif", fontSize: 14, color: "#241016", outline: "none" }}
+              placeholder="e.g., Pratik Thorat"
+              required
+              style={{ border: "1.5px solid #EADCD9", borderRadius: 10, padding: "10px 12px", fontFamily: "Inter,sans-serif", fontSize: 13.5, color: "#241016", outline: "none" }}
             />
           </label>
 
-          <label style={{ display: "flex", flexDirection: "column", gap: 6, fontSize: 13, fontWeight: 600, color: "#241016" }}>
-            <span style={{ display: "flex", alignItems: "center", gap: 6, color: "#8C6B70", fontSize: 12.5 }}>✉️ Email Address</span>
+          <label style={{ display: "flex", flexDirection: "column", gap: 5, fontSize: 13, fontWeight: 600, color: "#241016" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: 6, color: "#8C6B70", fontSize: 12 }}>🎓 College / University</span>
             <input
-              type="email"
-              value={form.email}
-              onChange={e => setForm({...form, email: e.target.value})}
-              placeholder="e.g., yourname@gmail.com"
-              style={{ border: "1.5px solid #EADCD9", borderRadius: 10, padding: "11px 13px", fontFamily: "Inter,sans-serif", fontSize: 14, color: "#241016", outline: "none" }}
+              value={form.college}
+              onChange={e => setForm({...form, college: e.target.value})}
+              placeholder="e.g., Sanjivani University, Kopargaon"
+              style={{ border: "1.5px solid #EADCD9", borderRadius: 10, padding: "10px 12px", fontFamily: "Inter,sans-serif", fontSize: 13.5, color: "#241016", outline: "none" }}
             />
           </label>
 
-          <button type="submit" style={{ marginTop: 6, padding: "13px 20px", background: "#5B1526", color: "#fff", border: "none", borderRadius: 999, fontFamily: "Inter,sans-serif", fontWeight: 700, fontSize: 14, cursor: "pointer", transition: "background .15s" }}>
-            Save Changes ✓
+          <label style={{ display: "flex", flexDirection: "column", gap: 5, fontSize: 13, fontWeight: 600, color: "#241016" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: 6, color: "#8C6B70", fontSize: 12 }}>📞 Phone Number</span>
+            <input
+              value={form.phone}
+              onChange={e => setForm({...form, phone: e.target.value})}
+              placeholder="e.g., 9834620537"
+              style={{ border: "1.5px solid #EADCD9", borderRadius: 10, padding: "10px 12px", fontFamily: "Inter,sans-serif", fontSize: 13.5, color: "#241016", outline: "none" }}
+            />
+          </label>
+
+          <label style={{ display: "flex", flexDirection: "column", gap: 5, fontSize: 13, fontWeight: 600, color: "#241016" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: 6, color: "#8C6B70", fontSize: 12 }}>📅 Target Move-in</span>
+            <input
+              type="date"
+              value={form.moveIn}
+              onChange={e => setForm({...form, moveIn: e.target.value})}
+              style={{ border: "1.5px solid #EADCD9", borderRadius: 10, padding: "10px 12px", fontFamily: "Inter,sans-serif", fontSize: 13.5, color: "#241016", outline: "none" }}
+            />
+          </label>
+
+          <button
+            type="submit"
+            disabled={saving}
+            style={{
+              marginTop: 4,
+              padding: "12px 20px",
+              background: "#5B1526",
+              color: "#fff",
+              border: "none",
+              borderRadius: 999,
+              fontFamily: "Inter,sans-serif",
+              fontWeight: 700,
+              fontSize: 14,
+              cursor: saving ? "not-allowed" : "pointer",
+              opacity: saving ? 0.7 : 1,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 8
+            }}>
+            {saving ? "Syncing to Cloud..." : "Save & Sync Across Devices ✓"}
           </button>
         </form>
       </div>
@@ -3831,49 +3883,38 @@ export default function App() {
     } catch (e) {}
   }, []);
 
-  // Cloud Firestore Sync: Listen to User Saved Wishlist across all devices
+  // 1. Listen to Auth State and load User Profile from Firestore (Preserves profile across devices & refreshes)
   useEffect(() => {
-    if (!user?.email) return;
-    try {
-      const userKey = user.email.toLowerCase().trim();
-      const unsub = onSnapshot(doc(db, "user_saved", userKey), (docSnap) => {
-        if (docSnap.exists()) {
-          const data = docSnap.data();
-          const cloudSavedIds = Array.isArray(data.savedIds) ? data.savedIds : [];
-          try {
-            localStorage.setItem("nestro_saved_ids", JSON.stringify(cloudSavedIds));
-            localStorage.setItem(`nestro_saved_ids_${userKey}`, JSON.stringify(cloudSavedIds));
-          } catch (e) {}
-          setListings(prev => prev.map(l => ({
-            ...l,
-            saved: cloudSavedIds.includes(l.id)
-          })));
-          if (selected) {
-            setSelected(s => s ? ({ ...s, saved: cloudSavedIds.includes(s.id) }) : s);
-          }
-        }
-      }, (err) => {
-        console.log("Cloud Saved sync notice:", err);
-      });
-      return () => unsub();
-    } catch (e) {}
-  }, [user?.email]);
+    const unsubscribe = onAuthStateChanged(auth, async (fbUser) => {
+      if (fbUser && fbUser.email) {
+        const cleanEmail = fbUser.email.toLowerCase().trim();
+        const userDocRef = doc(db, "users", cleanEmail);
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (fbUser) => {
-      if (fbUser) {
-        const email = fbUser.email;
-        const savedCollege = localStorage.getItem(`nestro_college_${email}`) || "Sanjivani University, Kopargaon";
-        const userData = {
-          name: fbUser.displayName || email.split("@")[0] || "Student",
-          email: email,
-          college: savedCollege,
-          phone: "9834620537",
-          moveIn: "2026-09-01"
-        };
-        setUser(userData);
+        let profileFromDb = null;
         try {
-          localStorage.setItem("nestro_current_user", JSON.stringify(userData));
+          const snap = await getDoc(userDocRef);
+          if (snap.exists()) {
+            profileFromDb = snap.data();
+          }
+        } catch (e) {}
+
+        const finalUserData = {
+          name: profileFromDb?.name || fbUser.displayName || cleanEmail.split("@")[0] || "Student",
+          email: cleanEmail,
+          college: profileFromDb?.college || localStorage.getItem(`nestro_college_${cleanEmail}`) || "Sanjivani University, Kopargaon",
+          phone: profileFromDb?.phone || "9834620537",
+          moveIn: profileFromDb?.moveIn || "2026-09-01"
+        };
+
+        if (!profileFromDb) {
+          try {
+            await setDoc(userDocRef, { ...finalUserData, createdAt: new Date().toISOString() }, { merge: true });
+          } catch (e) {}
+        }
+
+        setUser(finalUserData);
+        try {
+          localStorage.setItem("nestro_current_user", JSON.stringify(finalUserData));
         } catch (e) {}
       } else {
         const cached = localStorage.getItem("nestro_current_user");
@@ -3885,6 +3926,61 @@ export default function App() {
     });
     return () => unsubscribe();
   }, []);
+
+  // 2. Real-Time Cloud Firestore Sync for Profile & Wishlist across all devices
+  useEffect(() => {
+    if (!user?.email) return;
+    const userKey = user.email.toLowerCase().trim();
+    try {
+      // Profile listener (reflects edits made from another device instantly)
+      const unsubUser = onSnapshot(doc(db, "users", userKey), (docSnap) => {
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          setUser(prev => {
+            if (!prev) return prev;
+            return {
+              ...prev,
+              name: data.name || prev.name,
+              college: data.college || prev.college,
+              phone: data.phone || prev.phone,
+              moveIn: data.moveIn || prev.moveIn
+            };
+          });
+          if (Array.isArray(data.savedListingIds)) {
+            const cloudSavedIds = data.savedListingIds;
+            setListings(prev => prev.map(l => ({
+              ...l,
+              saved: cloudSavedIds.some(sid => String(sid) === String(l.id))
+            })));
+          }
+        }
+      }, () => {});
+
+      // Wishlist listener (user_saved)
+      const unsubSaved = onSnapshot(doc(db, "user_saved", userKey), (docSnap) => {
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          const cloudSavedIds = Array.isArray(data.savedIds) ? data.savedIds : [];
+          try {
+            localStorage.setItem("nestro_saved_ids", JSON.stringify(cloudSavedIds));
+            localStorage.setItem(`nestro_saved_ids_${userKey}`, JSON.stringify(cloudSavedIds));
+          } catch (e) {}
+          setListings(prev => prev.map(l => ({
+            ...l,
+            saved: cloudSavedIds.some(sid => String(sid) === String(l.id))
+          })));
+          if (selected) {
+            setSelected(s => s ? ({ ...s, saved: cloudSavedIds.some(sid => String(sid) === String(s.id)) }) : s);
+          }
+        }
+      }, () => {});
+
+      return () => {
+        unsubUser();
+        unsubSaved();
+      };
+    } catch (e) {}
+  }, [user?.email]);
 
   async function handleSignOut() {
     try {
@@ -4610,18 +4706,43 @@ export default function App() {
       {/* Global Legal Modal in App */}
       {legalModalTab && <LegalModal initialTab={legalModalTab} onClose={() => setLegalModalTab(null)} />}
 
-      {/* Edit Profile Modal */}
+      {/* Edit Profile Modal with Full Cloud Sync */}
       {showEditProfile && (
         <EditProfileModal
           user={user}
-          onSave={updated => {
-            setUser(prev => {
-              const next = { ...prev, ...updated };
+          onSave={async (updated) => {
+            const next = { ...user, ...updated };
+            setUser(next);
+            try {
+              localStorage.setItem("nestro_current_user", JSON.stringify(next));
+              if (next.email && next.college) {
+                localStorage.setItem(`nestro_college_${next.email.toLowerCase().trim()}`, next.college);
+              }
+            } catch (e) {}
+
+            // Sync to Firestore database
+            if (next.email) {
               try {
-                localStorage.setItem("nestro_current_user", JSON.stringify(next));
+                const userKey = next.email.toLowerCase().trim();
+                await setDoc(doc(db, "users", userKey), {
+                  name: next.name || "",
+                  email: next.email || "",
+                  college: next.college || "Sanjivani University, Kopargaon",
+                  phone: next.phone || "",
+                  moveIn: next.moveIn || "",
+                  updatedAt: new Date().toISOString()
+                }, { merge: true });
+              } catch (e) {
+                console.log("Firestore profile sync error:", e);
+              }
+            }
+
+            // Update Firebase Auth displayName
+            if (auth.currentUser && updated.name) {
+              try {
+                await updateProfile(auth.currentUser, { displayName: updated.name });
               } catch (e) {}
-              return next;
-            });
+            }
           }}
           onClose={() => setShowEditProfile(false)}
         />
