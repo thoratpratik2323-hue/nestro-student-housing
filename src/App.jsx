@@ -10,6 +10,8 @@ import {
   Download, ExternalLink
 } from "lucide-react";
 import { auth, db } from "./firebase";
+import nestroLogo from "./assets/logo.png";
+import nestAiLogo from "./assets/nest-ai-logo.png";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -1307,7 +1309,7 @@ function AuthFlow({ onDone }) {
         
         {/* LOGO */}
         <div style={{ textAlign: "center", marginBottom: 18 }}>
-          <img src="/logo.png" alt="NESTRO Logo" style={{ height: 64, objectFit: "contain", borderRadius: 14, boxShadow: "0 4px 16px rgba(0,0,0,0.15)" }} />
+          <img src={nestroLogo} alt="NESTRO Logo" style={{ height: 64, objectFit: "contain", borderRadius: 14, boxShadow: "0 4px 16px rgba(0,0,0,0.15)" }} />
         </div>
 
         {!submitted ? (
@@ -3411,7 +3413,7 @@ function NextAIAssistant({ listings, user, onSelectListing }) {
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <div style={{ position: "relative" }}>
             <img
-              src="/nest-ai-logo.png"
+              src={nestAiLogo}
               alt="NEST AI"
               style={{
                 width: 44,
@@ -3484,7 +3486,7 @@ function NextAIAssistant({ listings, user, onSelectListing }) {
             <div style={{ display: "flex", alignItems: "flex-end", gap: 8, maxWidth: "88%", flexDirection: m.sender === "user" ? "row-reverse" : "row" }}>
               {m.sender === "ai" && (
                 <img
-                  src="/nest-ai-logo.png"
+                  src={nestAiLogo}
                   alt="NEST AI"
                   style={{
                     width: 32,
@@ -3594,7 +3596,7 @@ function NextAIAssistant({ listings, user, onSelectListing }) {
         {isTyping && (
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <img
-              src="/nest-ai-logo.png"
+              src={nestAiLogo}
               alt="NEST AI"
               style={{
                 width: 32,
@@ -4052,7 +4054,7 @@ export default function App() {
   if (authLoading && !user) {
     return (
       <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "#FAF6F5", fontFamily: "Inter,sans-serif" }}>
-        <img src="/logo.png" alt="NESTRO" style={{ width: 72, height: 72, borderRadius: 16, objectFit: "cover", marginBottom: 14, boxShadow: "0 8px 24px rgba(91,21,38,0.2)" }} />
+        <img src={nestroLogo} alt="NESTRO" style={{ width: 72, height: 72, borderRadius: 16, objectFit: "cover", marginBottom: 14, boxShadow: "0 8px 24px rgba(91,21,38,0.2)" }} />
         <p style={{ fontFamily: "Fraunces,serif", fontSize: 22, fontWeight: 700, color: "#241016", margin: "0 0 4px" }}>NESTRO</p>
         <p style={{ fontSize: 12.5, color: "#8C6B70", margin: 0 }}>Restoring student session…</p>
       </div>
@@ -4094,7 +4096,7 @@ export default function App() {
   /* ── Home Screen ── */
   const navItems = [
     { id: "explore", Icon: Home, label: "Explore" },
-    { id: "ai", isImage: true, iconSrc: "/nest-ai-logo.png", label: "NEST AI", badge: "AI" },
+    { id: "ai", isImage: true, iconSrc: nestAiLogo, label: "NEST AI", badge: "AI" },
     { id: "saved", Icon: Bookmark, label: "Saved", badge: saved.length },
     { id: "profile", Icon: User, label: "Profile" },
   ];
@@ -4105,7 +4107,7 @@ export default function App() {
       {!mobile && (
         <div style={{ width: 230, background: "#FFFDFB", borderRight: "1px solid #F0DEDD", display: "flex", flexDirection: "column", padding: "18px 12px", flexShrink: 0 }}>
           <div style={{ padding: "0 8px 20px", display: "flex", alignItems: "center", gap: 10 }}>
-            <img src="/logo.png" alt="NESTRO" style={{ width: 44, height: 44, borderRadius: 10, objectFit: "cover", boxShadow: "0 2px 8px rgba(0,0,0,0.12)" }} />
+            <img src={nestroLogo} alt="NESTRO" style={{ width: 44, height: 44, borderRadius: 10, objectFit: "cover", boxShadow: "0 2px 8px rgba(0,0,0,0.12)" }} />
             <div>
               <p style={{ fontFamily: "Fraunces,serif", fontSize: 18, fontWeight: 700, color: "#2E0A16", margin: 0 }}>NESTRO</p>
               <p style={{ fontFamily: "Inter,sans-serif", fontSize: 11, color: "#8C6B70", margin: 0 }}>Find. Compare. Move In.</p>
@@ -4145,7 +4147,7 @@ export default function App() {
               {mobile && (
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                    <img src="/logo.png" alt="NESTRO" style={{ width: 38, height: 38, borderRadius: 8, objectFit: "cover", boxShadow: "0 2px 6px rgba(0,0,0,0.12)" }} />
+                    <img src={nestroLogo} alt="NESTRO" style={{ width: 38, height: 38, borderRadius: 8, objectFit: "cover", boxShadow: "0 2px 6px rgba(0,0,0,0.12)" }} />
                     <div>
                       <p style={{ fontFamily: "Inter,sans-serif", fontSize: 11.5, color: "#8C6B70", margin: 0 }}>Good evening, {user.name.split(" ")[0]} 👋</p>
                       <p style={{ fontFamily: "Fraunces,serif", fontSize: 17, fontWeight: 700, color: "#241016", margin: 0 }}>Find your PG</p>
@@ -4285,7 +4287,7 @@ export default function App() {
                   transition: "transform .15s"
                 }}>
                 <img
-                  src="/nest-ai-logo.png"
+                  src={nestAiLogo}
                   alt="NEST AI"
                   style={{ width: 26, height: 26, borderRadius: 8, objectFit: "cover", border: "1px solid rgba(255,255,255,0.3)" }}
                 />
